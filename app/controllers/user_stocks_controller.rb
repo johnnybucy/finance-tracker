@@ -12,6 +12,9 @@ class UserStocksController < ApplicationController
         redirect_to my_portfolio_path
     end 
     def new
+        @tick = params[:ticker]
+        @tick = @tick.downcase
+        
         
     end 
     def destroy
