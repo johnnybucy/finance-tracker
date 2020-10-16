@@ -4,7 +4,8 @@
     <strong>Name: </strong> <%= @stock.name %>
     <strong>Price: </strong> <%= @stock.last_price %>
         <% if current_user.can_track_stock?(@stock.ticker) %> 
-           <%= link_to "Add to portfolio", new_user_stock_path(user: current_user, ticker: @stock.ticker) %>
+             
+           <%= link_to "Add NOW", new_user_stock_path(user: current_user, symbol: @stock.ticker, name: @stock.name, price: @stock.last_price) %>
        
         <% else %>
             <span class="label">
