@@ -2,7 +2,7 @@ class Stock < ApplicationRecord
     has_many :user_stocks
     has_many :users, through: :user_stocks
     
-    validates :name, :ticker, presence: true
+    validates :name, :ticker, :category, presence: true
     def  self.new_lookup(ticker_symbol)
         ticker_symbol = ticker_symbol.downcase
         client = IEX::Api::Client.new(publishable_token: 'Tpk_8c35838042e44af8a9daa2d3b42e8f4a',
@@ -19,4 +19,5 @@ class Stock < ApplicationRecord
         ticker_symbol = ticker_symbol.downcase
         where(ticker: ticker_symbol).first
     end
+
 end

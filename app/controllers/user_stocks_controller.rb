@@ -3,6 +3,9 @@ class UserStocksController < ApplicationController
         tick = params[:ticker]
         tick = tick.downcase
         stock = Stock.check_db(tick)
+        cat = params[:category]
+        cat = cat.downcase
+        stock.category = cat
         if stock.blank?
             stock = Stock.new_lookup(tick)
             stock.save
@@ -18,5 +21,7 @@ class UserStocksController < ApplicationController
         user_stock.destroy
         #flash[:alert] "Hey, #{stock.ticker} was successfully removed from portfolio"
         redirect_to my_portfolio_path
+    end
+    def new
     end
 end
