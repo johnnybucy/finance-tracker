@@ -1,0 +1,14 @@
+<%= form_with model: @stock do |f| %>
+
+     <%= f.label "Name:" %>
+     <%= f.label " #{@stock.name}" %>
+     <%= f.label "Ticker:" %>
+     <%= f.label " #{@stock.ticker}" %>
+     <%= f.label "Last Price:" %>
+     <%= f.label " #{@stock.last_price}" %>
+     <%= f.label "Category:" %>
+     <%= f.text_field :category %>
+     
+      <%= f.submit "Create" %>
+     
+  <% end %>
