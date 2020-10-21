@@ -4,10 +4,7 @@
     <strong>Name: </strong> <%= @stock.name %>
     <strong>Price: </strong> <%= @stock.last_price %>
     
-    <label class="block">
-  <span class="text-gray-700">category</span>
-  <input class="form-input mt-1 block w-full" placeholder="Jane Doe">
-</label>
+
         <% if current_user.can_track_stock?(@stock.ticker) %> 
              
            <%= link_to "Add NOW", new_stock_path(user: current_user, ticker: @stock.ticker) %>
